@@ -5,23 +5,36 @@
 :root {
   --header-height: 3rem;
 
-  /*========== Colors ==========*/
-  /* Change favorite color */
-  --hue-color: 190; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+/*========== Colors ==========*/
+/* Change favorite color */
+--hue-color: 190; /* A calming teal-blue tone */
 
-  /* HSL color mode */
-  --first-color: hsl(var(--hue-color), 69%, 61%);
-  --first-color-second: hsl(var(--hue-color), 69%, 61%);
-  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
-  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --title-color: hsl(var(--hue-color), 8%, 15%);
-  --text-color: hsl(var(--hue-color), 8%, 45%);
-  --text-color-light: hsl(var(--hue-color), 8%, 65%);
-  --input-color: hsl(var(--hue-color), 70%, 96%);
-  --body-color: hsl(var(--hue-color), 60%, 99%);
-  --container-color: #fff;
-  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+/* HSL color mode */
+--first-color: hsl(var(--hue-color), 80%, 50%); /* Vibrant teal */
+--first-color-second: hsl(var(--hue-color), 75%, 45%); /* Deepened teal */
+--first-color-alt: hsl(var(--hue-color), 70%, 40%); /* Darker shade for depth */
+--first-color-lighter: hsl(var(--hue-color), 90%, 85%); /* Soft pastel teal */
+--title-color: hsl(var(--hue-color), 15%, 10%); /* Rich charcoal for contrast */
+--text-color: hsl(var(--hue-color), 10%, 50%); /* Balanced gray for text */
+--text-color-light: hsl(var(--hue-color), 10%, 80%); /* Light gray for softer text */
+--input-color: hsl(var(--hue-color), 75%, 95%); /* Ultra-light teal for inputs */
+--body-color: hsl(var(--hue-color), 60%, 98%); /* Almost white background */
+--container-color: hsl(0, 0%, 100%); /* Pure white for containers */
+--scroll-bar-color: hsl(var(--hue-color), 15%, 90%); /* Very light gray for scrollbar */
+--scroll-thumb-color: hsl(var(--hue-color), 15%, 70%); /* Subtle gray for scrollbar thumb */
+
+/* Animation */
+@keyframes colorChange {
+  0% { background-color: var(--body-color); }
+  25% { background-color: var(--first-color-lighter); }
+  50% { background-color: var(--first-color); }
+  75% { background-color: var(--first-color-second); }
+  100% { background-color: var(--body-color); }
+}
+
+body {
+  animation: colorChange 10s infinite alternate; /* Loop the animation */
+}
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -69,19 +82,29 @@
   }
 }
 
-/*========== Variables Dark theme ==========*/
+/*========== Variables Modern Futuristic Dark Theme ==========*/
 body.dark-theme {
   /* HSL color mode */
-  --first-color-second: hsl(var(--hue-color), 30%, 8%);
-  --title-color: hsl(var(--hue-color), 8%, 95%);
-  --text-color: hsl(var(--hue-color), 8%, 45%);
-  --text-color-light: hsl(var(--hue-color), 8%, 75%);
-  --input-color: hsl(var(--hue-color), 29%, 16%);
-  --body-color: hsl(var(--hue-color), 28%, 12%);
-  --container-color: hsl(var(--hue-color), 29%, 16%);
-  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+  --first-color-second: hsl(var(--hue-color), 20%, 10%);
+  --title-color: hsl(var(--hue-color), 10%, 95%);
+  --text-color: hsl(var(--hue-color), 10%, 50%);
+  --text-color-light: hsl(var(--hue-color), 10%, 80%);
+  --input-color: hsl(var(--hue-color), 25%, 18%);
+  --body-color: hsl(var(--hue-color), 30%, 15%);
+  --container-color: hsl(var(--hue-color), 28%, 20%);
+  --scroll-bar-color: hsl(var(--hue-color), 10%, 40%);
+  --scroll-thumb-color: hsl(var(--hue-color), 10%, 30%);
+
+  /* Additional futuristic colors */
+  --accent-color: hsl(260, 100%, 60%); /* Electric violet for a vibrant accent */
+  --border-color: hsl(var(--hue-color), 100%, 60%); /* Bright border for elements */
+  --shadow-color: rgba(0, 0, 0, 0.6); /* Deeper shadow for more pronounced depth */
+
+  /* Futuristic gradients */
+  --gradient-background: linear-gradient(135deg, hsl(200, 100%, 20%) 0%, hsl(210, 100%, 15%) 100%);
+  --highlight-color: hsl(60, 100%, 50%); /* Bright yellow-green for highlights */
 }
+
 
 /*========== Button Dark/Light ==========*/
 .nav__btns {
@@ -118,6 +141,10 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1,
@@ -308,7 +335,9 @@ img {
 }
 
 .home__blob-img {
-  width: 220px;
+  width: 200px;
+  height: 267px; /* Maintains a 3:4 aspect ratio */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
 }
 
 .home__data {
