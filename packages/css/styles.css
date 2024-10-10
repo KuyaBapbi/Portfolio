@@ -7,10 +7,10 @@
 
 /*========== Colors ==========*/
 /* Change favorite color */
---hue-color: 190; /* A calming teal-blue tone */
+--hue-color: 190; /* A serene teal-blue tone */
 
 /* HSL color mode */
---first-color: hsl(var(--hue-color), 80%, 50%); /* Vibrant teal */
+--first-color: hsl(var(--hue-color), 80%, 50%); /* Bright teal */
 --first-color-second: hsl(var(--hue-color), 75%, 45%); /* Deepened teal */
 --first-color-alt: hsl(var(--hue-color), 70%, 40%); /* Darker shade for depth */
 --first-color-lighter: hsl(var(--hue-color), 90%, 85%); /* Soft pastel teal */
@@ -36,49 +36,48 @@ body {
   animation: colorChange 10s infinite alternate; /* Loop the animation */
 }
 
-  /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
+/*========== Font and typography ==========*/
+--body-font: "Arial", sans-serif;
 
-  /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
-  --big-font-size: 2rem;
-  --h1-font-size: 1.5rem;
-  --h2-font-size: 1.25rem;
-  --h3-font-size: 1.125rem;
-  --normal-font-size: 0.938rem;
-  --small-font-size: 0.813rem;
-  --smaller-font-size: 0.75rem;
+/* Font sizes */
+--big-font-size: 2.5rem;
+--h1-font-size: 1.8rem;
+--h2-font-size: 1.6rem;
+--h3-font-size: 1.4rem;
+--normal-font-size: 1rem;
+--small-font-size: 0.9rem;
+--smaller-font-size: 0.75rem;
 
-  /*========== Font weight ==========*/
-  --font-medium: 500;
-  --font-semi-bold: 600;
+/*========== Font weight ==========*/
+--font-medium: 500;
+--font-semi-bold: 600;
 
-  /*========== Margenes Bottom ==========*/
-  /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
-  --mb-0-25: 0.25rem;
-  --mb-0-5: 0.5rem;
-  --mb-0-75: 0.75rem;
-  --mb-1: 1rem;
-  --mb-1-5: 1.5rem;
-  --mb-2: 2rem;
-  --mb-2-5: 2.5rem;
-  --mb-3: 3rem;
+/*========== Margins Bottom ==========*/
+--mb-0-25: 0.25rem;
+--mb-0-5: 0.5rem;
+--mb-0-75: 0.75rem;
+--mb-1: 1rem;
+--mb-1-5: 1.5rem;
+--mb-2: 2rem;
+--mb-2-5: 2.5rem;
+--mb-3: 3rem;
 
-  /*========== z index ==========*/
-  --z-tooltip: 10;
-  --z-fixed: 100;
-  --z-modal: 1000;
+/*========== z index ==========*/
+--z-tooltip: 10;
+--z-fixed: 100;
+--z-modal: 1000;
 }
 
 /* Font size for large devices */
 @media screen and (min-width: 968px) {
   :root {
     --big-font-size: 3rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: 0.875rem;
-    --smaller-font-size: 0.813rem;
+    --h1-font-size: 2.75rem;
+    --h2-font-size: 1.85rem;
+    --h3-font-size: 1.5rem;
+    --normal-font-size: 1.125rem;
+    --small-font-size: 0.9rem;
+    --smaller-font-size: 0.75rem;
   }
 }
 
@@ -96,15 +95,14 @@ body.dark-theme {
   --scroll-thumb-color: hsl(var(--hue-color), 10%, 30%);
 
   /* Additional futuristic colors */
-  --accent-color: hsl(260, 100%, 60%); /* Electric violet for a vibrant accent */
+  --accent-color: hsl(60, 100%, 60%); /* Bright yellow-green for a vibrant accent */
   --border-color: hsl(var(--hue-color), 100%, 60%); /* Bright border for elements */
   --shadow-color: rgba(0, 0, 0, 0.6); /* Deeper shadow for more pronounced depth */
 
   /* Futuristic gradients */
-  --gradient-background: linear-gradient(135deg, hsl(200, 100%, 20%) 0%, hsl(210, 100%, 15%) 100%);
-  --highlight-color: hsl(60, 100%, 50%); /* Bright yellow-green for highlights */
+  --gradient-background: linear-gradient(135deg, hsl(190, 100%, 20%) 0%, hsl(200, 100%, 15%) 100%);
+  --highlight-color: hsl(0, 100%, 50%); /* Bright coral for highlights */
 }
-
 
 /*========== Button Dark/Light ==========*/
 .nav__btns {
@@ -113,7 +111,7 @@ body.dark-theme {
 }
 
 .change-theme {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--title-color);
   margin-right: var(--mb-1);
   cursor: pointer;
@@ -122,6 +120,89 @@ body.dark-theme {
 .change-theme:hover {
   color: var(--first-color);
 }
+
+/*========== Text Animation ==========*/
+
+/* Fade-in effect for text */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation to all headings and paragraphs */
+h1, h2, h3, p {
+  animation: fadeIn 0.8s ease forwards; /* 0.8s duration */
+  opacity: 0; /* Start hidden */
+}
+
+/* Delay the animations based on the order of elements */
+h1 {
+  animation-delay: 0.2s;
+}
+h2 {
+  animation-delay: 0.4s;
+}
+h3 {
+  animation-delay: 0.6s;
+}
+p {
+  animation-delay: 0.8s;
+}
+
+/* Add this new keyframes for slide animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Start from the left */
+    opacity: 0; /* Start hidden */
+  }
+  100% {
+    transform: translateX(0); /* Slide to original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Apply slide animation to spans */
+span {
+  display: inline-block; /* Necessary for the transform to work */
+  animation: slideIn 0.5s ease forwards; /* Apply slide animation */
+  opacity: 0; /* Start hidden */
+}
+
+/* Delay the animations based on the order of spans */
+span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Hover effect for interactive text */
+h1:hover, h2:hover, h3:hover, p:hover {
+  color: var(--first-color); /* Change color on hover */
+  transform: scale(1.05); /* Slightly enlarge the text */
+  transition: transform 0.2s ease, color 0.2s ease; /* Smooth transition */
+}
+
+/* Apply similar effects to links */
+a {
+  color: var(--first-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--highlight-color); /* Change color on hover */
+}
+
+
 
 /*==================== BASE ====================*/
 
